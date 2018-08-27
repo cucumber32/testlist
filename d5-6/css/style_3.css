@@ -2,17 +2,27 @@ body
 {
 	font-size: 10px;
 }
+#resume
+{
+	padding: .2em;
+	overflow: hidden;
+}
 h1
 {
 	/*位置*/
 	/*尺寸*/
-	width:100%;
-	padding:1em 2em;
+	width: 100%;
+	padding: 1em 2em;
 	/*文本相关*/
 	font-size: 1.8em;
 	/*视觉效果*/
 	color:#fff;
 	background-color: #777;
+}
+#main
+{
+	position: relative;
+	width: 100%;
 }
 .message-box
 {
