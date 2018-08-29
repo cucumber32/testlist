@@ -3,6 +3,11 @@ html,body
 	margin: 0;
 	font-size: 10px;
 }
+body
+{
+	min-width: 1000px;
+}
+
 /*************头部**************/
 header
 {
@@ -62,6 +67,7 @@ header
 	padding: 3px 6px;
 	font-size: 1.2em;
 }
+
 #banner ul li:nth-child(2)
 {
 	padding-top: 16px;
@@ -74,6 +80,7 @@ nav
 {
 	width: 100%;
 	float: left;
+	position: relative;
 }
 #nav
 {
@@ -97,11 +104,17 @@ nav
 	border-top-left-radius: 12px;
 	background-color: #eee;
 }
+#nav ul li a
+{
+	text-decoration: none;
+	color: #333;
+}
 #nav ul li:nth-child(1)
 {
 	background-color: #fff;
-	border-bottom: 1px solid #fff;
+	border-bottom: 2px solid #fff;
 }
+/*此方法不可取
 #nav ul li:nth-child(1):after
 {
 	content: "";
@@ -112,9 +125,11 @@ nav
 	background: #fff;
 	left: 41px;
 	top: 39px;
-}
+}*/
 nav hr
 {
+	float: left;
+	margin-top: -2px;
 	width: 100%;
 	border: .5px solid #ddd;
 }
