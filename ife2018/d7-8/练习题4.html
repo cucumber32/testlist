@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>d7-8 实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</title>
+	<style type="text/css">
+		/*基础设置*/
+		.middle
+		{
+			background-color: #f85d5d;
+			height: 700px;
+		}
+		.left
+		{
+			background-color: #ccc;
+			height: 700px;
+			width: 200px;
+		}
+		.right
+		{
+			background-color: #88bbff;
+			height: 700px;
+			width: 200px;
+		}
+
+
+		/*方法二：float+calc布局*/
+		/*.left
+		{
+			float: left;
+		}
+		.middle
+		{
+			float: left;
+			width: calc(100% - 400px);
+		}
+		.right
+		{
+			float: right;
+		}*/
+
+		/*方法三：flex布局*/
+		/*flex-grow flex-shrink flex-basis
+		1 1 auto 这个值表示占满额外空间，可缩放
+		0 0 auto 这个值表示不占额外空间，不可缩放
+		*/
+		/*body
+		{
+			display: flex;
+		}
+		.left
+		{
+			flex: 0 0 auto;	
+		}
+		.middle
+		{
+			flex: 1 1 auto;	
+		}
+		.right
+		{
+			flex: 0 0 auto;
+		}*/
+
+		/*方法四：position+calc*/
+		/*body
+		{
+			position: relative;
+		}
+		.left
+		{
+			position: absolute;
+		}
+		.middle
+		{
+			position: absolute;
+			left: 200px;
+			width: calc(100% - 400px);
+		}
+		.right
+		{
+			position: absolute;
+			right: 0;
+		}*/
+
+		/*方法五：BFC+float:不可行*/
+
+		/*方法六：table-cell*/
+		/*body
+		{
+			display: table;
+			width: 100%;
+		}
+		body>div
+		{
+			display: table-cell;
+		}*/
+
+		/*方法七：纯position*/
+		/*body
+		{
+			margin: 0;
+		}
+		.left
+		{
+			position:  absolute;
+			width: 200px;
+			top: 0;
+			left: 0;
+		}
+		.right
+		{
+			position:absolute;
+			width: 200px;
+			top: 0;
+			right: 0;
+		}
+		.middle
+		{
+			margin: 0 20px;
+			top: 0;
+		}*/
+
+		/*方法八：负边距布局【参考三种三栏布局那篇博客】老实承认不会用*/
+		/*#main
+		{
+			float: left;
+			width: 100%;
+			height: 700px;
+		}
+		.left
+		{
+			float: left;
+			margin-left: -100%;
+		}
+		.righ
+		{
+			float: left;
+			margin-left: -200px;
+		}*/
+
+		
+		/*方法九：纯float布局*/
+		.left
+		{
+			float: left;
+		}
+		.right
+		{
+			float: right;
+		}
+
+	</style>
+</head>
+<body>
+	<!--
+	<div class="left"></div>
+	<div class="middle"></div>
+	<div class="right"></div>
+-->
+	<!--以下为负边距布局的html部分-->
+	<!--<div id="main">
+		<div class="middle"></div>
+	</div>
+	<div class="left"></div>
+	<div class="right"></div>-->
+
+	<!--以下为纯float布局-->
+	<div class="left"></div>
+	<div class="right"></div>
+	<div class="middle"></div>
+</body>
+</html>

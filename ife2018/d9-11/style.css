@@ -1,0 +1,476 @@
+
+body,
+html
+{
+	width: 100%;
+	margin: 0;
+	font-size: 10px;
+}
+body
+{
+	min-width: 1600px;
+}
+/****欢迎页面*******/
+header
+{
+	background: url(./images/bg_01.png) no-repeat 0 0;
+	height: 900px;
+	width: 1600px;
+	/*令元素垂直居中*/
+	display:table-cell;
+	vertical-align:middle;
+}
+.main
+{
+	text-align: center;	/*水平居中*/
+}
+header h1
+{
+	font-size: 5em;
+	color: #fff;
+	font-weight: 300;
+}
+header p
+{
+	font-size: 1.6em;
+	color: rgba(255,255,255,.8);
+	margin-top: 50px;
+	letter-spacing: 1px;
+	font-weight: 200;
+	line-height: 2;
+}
+#account
+{
+	border: 1px solid rgba(255,255,255,.5);
+	margin: 0 auto;
+	width: 600px;
+	padding: 30px;
+	margin-top: 50px;
+}
+#account label
+{
+	text-align: center;
+	letter-spacing: 2px;
+
+}
+#account span
+{
+	display: block;
+}
+#form-h1
+{
+	color: #fff;
+	font-size: 1.4em;
+	margin: 10px;
+}
+#form-h2
+{
+	font-size: 1.2em; 
+	color: rgba(255,255,255,.5);
+}
+#signup input
+{
+	font-size: 1.2em;
+	border-radius: 2px;
+	padding: 10px 20px;
+	border: 1px solid rgba(255,255,255,.5);
+	background-color: transparent;
+	margin-top: 30px;
+	margin-right: 20px;
+	color: #fff;
+}
+#signup button
+{
+	background: #fff;
+	padding: 10px;
+	border: 1px solid #fff;
+	font-size: 1.2em;
+	border-radius: 2px;
+}
+
+/**************介绍部分*****************/
+#introduce
+{
+	width: 100%;
+	padding: 50px 0;
+}
+#introduce h5,
+#introduce h1
+{
+	text-align: center;
+}
+#introduce h5
+{
+	font-size: 1.2em;
+	font-weight: 600;
+	letter-spacing: 2px;
+}
+#introduce h1
+{
+	font-size: 3.5em;
+	font-weight: 300;
+	margin: -2px 0;
+}
+#types
+{
+	display: flex;
+	flex-direction: column;
+	margin-left: 400px;
+	margin-top: 40px;
+}
+#types-col1,
+#types-col2
+{
+	display: flex;
+}
+#types-col1>div,
+#types-col2>div
+{
+	width: 400px;
+	height: 150px;
+}
+#types img
+{
+	width: 50px;
+	height: 50px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.type-picture
+{
+	float: left;
+	height: 100%;	/*让图片单独占一列*/
+}
+#types h3
+{
+	font-size: 1.6em;
+	font-weight: 400;
+}
+#types p
+{
+	font-size: 1.3em;
+	font-weight: 100;
+	color: #333;
+	line-height: 1.8;
+}
+
+/******************展示广告****************************/
+#ad
+{
+	background: url(./images/bg_02.png) no-repeat 0 0;
+	height: 798px;
+	width: 1600px;
+	position: relative;
+}
+#ad-intro
+{
+	position: absolute;
+	margin-top: 200px;
+	margin-left: 340px;
+}
+#ad h1
+{
+	color: #fff;
+	font-size: 3.2em;
+	margin: -1px 0;
+	font-weight: 100;
+}
+#ad p
+{
+	color: #aaa;
+	font-size: 1.6em;
+	font-weight: 100;
+	line-height: 1.5;
+	margin: 40px 0;
+}
+#btns button
+{
+	font-size: 1em;
+	padding: 18px 35px;
+	margin-right: 20px;
+	letter-spacing: 2px;
+	border-radius: 2px;
+}
+#ad-btn1
+{
+	background: #fff;
+	border: 1px solid #fff;
+}
+#ad-btn2
+{
+	color: #fff;
+	background-color: transparent;
+	border: 1px solid #999;
+}
+
+/*************第四部分：********************/
+#programs 
+{
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+}
+#programs h1
+{
+	font-size: 3.5em;
+	font-weight: 300;
+	margin-top: 80px;
+}
+
+#programs>div>div
+{
+	margin: 40px 30px;
+	display: inline-block;
+}
+#programs p
+{
+	font-size: 1.4em;
+	font-weight: 300;
+	line-height: 1.7;
+	color: #666;
+}
+
+/**********************5****************************/
+#studybook
+{
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+}
+#studybook img
+{
+	width: 570px;
+	height: 350px;
+}
+.study-rows
+{
+	margin: 80px;
+}
+.study-rows>div
+{
+	display: inline-block;
+	margin: 0 40px;
+	text-align: left;
+}
+.study-rows h3
+{
+	font-size: 2em;
+	font-weight: 400;
+	margin: -1px 0;
+}
+.study-rows p
+{
+	font-size: 1.4em;
+	font-weight: 300;
+	line-height: 1.8;
+	color: #666;
+}
+.study-words
+{
+	position: relative;
+	top: -80px;
+}
+
+/*************6 teachers**************************/
+#teachers
+{
+	padding-top: 40px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+}
+#teachers h1
+{
+	font-size: 3.5em;
+	font-weight: 300;
+}
+#teachers p
+{
+	font-size: 1.4em;
+	font-weight: 400;
+	line-height: 1.8;
+	color: #666;
+}
+#teachers>div
+{
+	display: grid;
+	grid-template-columns: 500px 500px;
+	grid-template-rows: 370px 370px;
+	margin: 80px 300px;
+}
+#teachers img
+{
+	width: 470px;
+	height: 340px;
+}
+#teachers #teacher_none
+{
+	position: absolute;
+	margin-top: -820px;
+}
+#teacher_none>div>div
+{
+	background: rgba(100,100,100,.7);
+	width: 470px;
+	height: 340px;
+	margin-left: 14px;
+}
+#teacher_none h5
+{
+	padding-top: 100px;
+	color: #fff;
+	font-weight: 400;
+	font-size: 2.3em;
+}
+#teacher_none span
+{
+	margin-top: -25px;
+	display: block;
+	font-weight: 700;
+	font-size: 1.3em;
+	letter-spacing: 1.5px;
+	color: rgba(255,255,255,.3);
+}
+#first_t
+{
+	margin-top: -40px;
+	display: none;
+}
+#first_t i
+{
+	margin: 20px 15px;
+	border: 1.5px solid rgba(255,255,255,.3);
+	padding: 15px;
+	border-radius: 50%;
+	color: #fff;
+}
+#first_t .fa-facebook
+{
+	padding: 15px 18px;
+}
+#first_p:hover #first_t
+{
+	display: block;	/****这里没实现成功，css实现失败***/
+}
+/*******************join us************************/
+#joinus
+{
+	height: 500px;
+	padding-top: 30px;
+}
+#joinus>div
+{
+	float: left;
+}
+#joinus h3
+{
+	font-size: 1.4em;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: 2px;
+	color: #555;
+}
+#joinus_table
+{
+	margin: 30px 30px 30px 300px;
+	padding: 30px 30px 20px 30px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+#joinus>div>input,#joinus>div>button
+{
+	display: block;
+	height: 28px;
+	width: 250px;
+	margin: 20px 10px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #999;
+	font-size: 1.2em;
+	padding-left: 5px;
+}
+#joinus #joinus_textarea
+{
+	height: 100px;
+}
+#joinus #joinus_table button
+{
+	width:  260px;
+	height: 40px;
+	padding: 5px 5px;
+	color: #fff;
+	background: #333;
+	border: 1px solid #333;
+	letter-spacing: 2px;
+	font-size: 1em;
+}
+
+#joinus #contacts
+{
+	margin-left: 80px;
+}
+#joinus h1
+{
+	font-weight: 100;
+	font-size: 4em;
+	letter-spacing: 2px;
+	color: #333;
+	margin-top: 80px;
+}
+#joinus p
+{
+	color: #aaa;
+	font-size: 1.2em;
+	line-height: 1.8;
+	margin-bottom: 40px;
+}
+#joinus i
+{
+	line-height: 1.5;
+	margin: 5px 15px 0 0;
+}
+#joinus span
+{
+	display: inline-block;
+	letter-spacing: 0.5px;
+	color: #444;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+
+/**********FOOTER*****************/
+footer
+{
+	background: #111;
+	margin: 0;
+	text-align: center;
+}
+footer h5
+{
+	color: #ddd;
+	letter-spacing: 1.5px;
+	font-weight: 400;
+}
+footer div
+{
+	margin: 20px 50px;
+	display: inline-block;
+	color: #666;
+	text-align: left;
+}
+footer ul
+{
+	padding-left: 0;
+}
+footer li
+{
+	list-style: none;
+	margin: 15px 0;
+	font-size: 1.1em;
+}
+footer i
+{
+	margin:0 6px;
+}
+footer #enjoylife li
+{
+	margin: 8px 0;
+}
