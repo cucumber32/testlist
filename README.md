@@ -9,4 +9,4 @@
 
 ## leetcode
 
-LeetCode练习题解答，主要是JavaScript。
+LeetCode练习题解答，主要使用JavaScript。
