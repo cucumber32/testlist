@@ -32,7 +32,7 @@ var subsets = function(nums)
 //用位运算解
 var subsets = function(nums)
 {
-    var list=[];  //定义结果数组
+    var list=[[]];  //定义结果数组
     var n=nums.length;      //n存储集合长度
     var l=Math.pow(2,n);    //用1-l期间的数的二进制表示的位串，来表示该全集所有的子集
     
