@@ -1,0 +1,447 @@
+
+<html>
+<head>
+	<title>分页插件</title>
+	<!--360012181203422-->
+	<style type="text/css">
+		#num_perpage
+		{
+			width: 60%;
+			margin: 0 auto;
+		}
+		#num_perpage #right
+		{
+			float:right;
+			display: inline;
+			text-align: center;
+			width: 60%;
+		}
+		#num_perpage label
+		{
+			font-weight: 700;
+		}
+		#num_perpage label select
+		{
+			font-size: 14px;
+			color:#555;
+			border:1px solid #ccc;
+			border-radius: 4px;
+			padding:0 12px;
+			height: 34px;
+			width: auto;
+			transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		}
+		#panel
+		{
+			width: 60%;
+			margin:0 auto;
+		}
+		#panel table
+		{
+			width:100%;
+			border-spacing: :0;
+			border-collapse:collapse;
+			text-align: center;
+			font-size: 14px;
+		}
+		#panel table>thead>tr>td
+		{
+			padding:8px;
+		}
+		#panel table>tbody>tr>td
+		{
+			border-top: 1px solid #ddd;
+			padding:8px;
+			line-height: 1.5;
+		}
+		#topage
+		{
+			width: 60%;
+			margin:0 auto;
+		}
+		.pages
+		{
+			position: relative;
+			min-height: 1px;
+			padding-right: 15px;
+			padding-left: 15px;
+			display: inline;
+		}
+		.pages ul
+		{
+			display: inline-block;
+			padding-left: 0;
+			margin: 20px 0;
+			border-radius: 4px;
+			list-style-type: disc;
+		}
+		.pages>ul>li
+		{
+			list-style-type: none;
+			float:left;
+			/*display: inline-block;*/
+
+			/*border:1px solid #ccc;*/
+		}
+		.pages>ul>li>a
+		{
+			border:1px solid #ddd;
+			padding:6px 12px;
+			/*color:#777;*/
+			color:#428bca;
+			font-size: 14px;
+			text-decoration: none;
+		}
+		#p1
+		{
+			color:#fff;
+			background-color: #428bca;
+		}
+		.pages>ul>li>a:hover
+		{
+			background-color: #eee;
+			/*color:#fff;*/
+		}
+		.pages>ul>li:first-child>a
+		{
+			margin-left: 0;
+			border-top-left-radius: 4px;
+			border-bottom-left-radius: 4px;
+		}
+		.pages>ul>li:last-child>a
+		{
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+		.goPageform
+		{
+			display: inline;
+			position: absolute;
+			margin-top: 15px;
+		}
+		.goPageform input
+		{
+			height:30px;
+			width: 80px;
+			font-size: 14px;
+			color: #555;
+			border:1px solid #ccc;
+			border-radius: 4px;
+			transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+			padding-left: 10px;
+		}
+		.goPageform a
+		{
+			background-color: #428bca;
+			color:#fff;
+			border-color: #357ebd;
+			border-radius: 4px;
+			font-size: 12px;
+			padding: 8px 12px;
+			cursor: pointer;
+			font-weight: 400;
+			text-align: center;
+		}
+		.goPageform a:hover
+		{
+			background-color: #357ebd;
+		}
+	</style>
+</head>
+<body>
+	<!--显示信息部分-->
+	<div id="panel">
+		<!--展示条数-->
+		<div id="num_perpage">
+			<div id="right">
+			<label>展示条数：
+				<select id="types">
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+				</select>
+			</label>
+			</div>
+		</div>
+		<!--主要信息部分-->
+		<table id="info">
+			<thead>
+				<tr>
+					<td>序号</td>
+					<td>模块</td>
+					<td>信息</td>
+					<td>时间</td>
+				</tr>
+			</thead>
+			<tbody id="infobody">
+				<tr>
+					<td>1</td>
+					<td>模块1</td>
+					<td>信息1</td>
+					<td>2018-08-21</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>模块2</td>
+					<td>信息2</td>
+					<td>2018-08-21</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>模块3</td>
+					<td>信息3</td>
+					<td>2018-08-21</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--跳转部分-->
+	<div id="topage">
+		<div class="pages">
+			<ul class="ul" id="page_ul">
+				<!--啊啊啊啊啊啊啊啊不写#的话会闪烁！！！click的效果会闪现，炒鬼畜！-->
+				<li><a href="#" id="first_page">首页</a></li>
+				<li><a href="#" id="prev_page">上一页</a></li>
+				<li class="li_page"><a href="#" class="page" id="p1">1</a></li>
+				<li class="li_page"><a href="#" class="page">2</a></li>
+				<li class="li_page"><a href="#" class="page">3</a></li>
+				<li class="li_page"><a href="#" class="page">4</a></li>
+				<li id="next_li"><a href="#" id="next_page">下一页</a></li>
+				<li><a href="#" id="last_page">末页</a></li>
+			</ul>
+		</div>
+		<div class="goPageform">
+			<input type="text" id="in_page">
+			<a id="goPage">跳转</a>
+		</div>
+	</div>
+	
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			var now_page=1;
+			//建立data对象
+			function Data(a,b,c,d)
+			{
+				this.num=a;
+				this.module=b;
+				this.message=c;
+				this.time=d;
+			}
+
+			//填写入10条信息作为样本数据
+			var datalist=[];
+			for(let i=1;i<11;i++)
+			{
+				var data_num,data_module,data_message,data_time;
+				data_num=i;
+				data_module="模块"+i;
+				data_message="信息"+i;
+				data_time="2018-08-21";
+				var data=new Data(data_num,data_module,data_message,data_time);
+				datalist.push(data);
+			}
+
+			//切换页码函数
+			function toPage(p)
+			{
+				//清除其他色
+				$("li a").css({
+					"background-color":"#fff",
+					"color":"#428bca",
+					"cursor":"pointer"
+				});
+				/*$("li a:hover").css(
+				{
+					"background-color":"#eee",
+					"color":" #357ebd"
+				});*/
+				
+				//给当前页上色
+				if(p!="")
+				{
+					var index=p+1;
+					$("li:eq("+index+") a").css({
+						"background-color":"#428bca",
+						"color":"#fff"
+					});
+				}
+
+				now_page=p;
+				setcss();
+				$("#infobody").empty();
+				var types=parseInt($("#types").val());
+				var start=types*(p-1);
+
+				//显示多少条信息
+				for(let i=start;i<start+types;i++)
+				{
+					var tr=$("<tr></tr");
+					if(!datalist[i])
+						return;
+					var td1=$("<td></td>").text(datalist[i].num);
+					var td2=$("<td></td>").text(datalist[i].module);
+					var td3=$("<td></td>").text(datalist[i].message);
+					var td4=$("<td></td>").text(datalist[i].time);
+					tr.append(td1,td2,td3,td4);
+					$("#infobody").append(tr);
+				}
+			}
+
+			//根据下拉框变化显示信息
+			$("#types").on("change",function()
+			{
+				var types=$("#types").val();
+				//toPage(1);
+				
+				//显示多少页码
+				$("li").remove(".li_page");
+				
+				if(10%types==0)
+					pages=10/types;
+				else
+					pages=parseInt(10/types)+1;
+				
+				for(let i=0;i<pages;i++)
+				{
+					var li=$("<li></li>");
+					li.attr("class","li_page");
+					var a=$("<a></a>").text(i+1);
+					a.attr("href","#");
+					a.attr("class","page");
+					li.append(a);
+					$("#next_li").before(li);
+				}
+				toPage(1);
+			});
+
+			//在jQuery中有“向未来的元素添加事件处理程序”方法说明，也正是动态创建元素无法触发事件的原因所在。 
+			//这个写法对于后来生成的a元素无效
+			/*$(".page").click(function()
+			{
+				var page=parseInt(this.innerHTML);
+				//document.write(page);
+				toPage(page);
+			});*/
+			//以下为正确写法：
+			$("#page_ul").on("click",".page",function()
+			{
+				var page=parseInt(this.innerHTML);
+				toPage(page);
+			});
+
+			$("#prev_page").click(function()
+			{
+				var types=$("#types").val();
+				if(10%types==0)
+					pages=10/types;
+				else
+					pages=parseInt(10/types)+1;
+				if(now_page>=2)
+				{
+					now_page--;
+					toPage(now_page);
+				}
+			});
+
+			$("#next_page").click(function()
+			{
+				var types=$("#types").val();
+				var pages;
+				if(10%types==0)
+					pages=10/types;
+				else
+					pages=parseInt(10/types)+1;
+				if(now_page<=pages)
+				{
+					if(now_page==pages)
+					{
+						toPage(now_page);
+						return;
+					}
+					now_page++;
+					toPage(now_page);
+				}
+			});
+
+			$("#first_page").click(function()
+			{
+				if(now_page==1)
+					return;
+				toPage(1);
+			});
+
+			$("#last_page").click(function()
+			{
+				var types=$("#types").val();
+				var pages;
+				if(10%types==0)
+					pages=parseInt(10/types);
+				else
+					pages=parseInt(10/types)+1;
+
+				if(now_page==pages)
+					return;
+				toPage(pages);
+			});
+
+			$("#goPage").click(function()
+			{
+				var page=$("#in_page").val();
+				toPage(page);
+			});
+
+			setcss();	//默认调用
+			function setcss()
+			{
+				var types=$("#types").val();
+				var pages;
+				if(10%types==0)
+					pages=parseInt(10/types);
+				else
+					pages=parseInt(10/types)+1;
+
+				if(now_page==1)
+				{
+					$("li:eq(0) a,li:eq(1) a").css(
+					{
+						"color":"#666",
+						"cursor":"not-allowed"
+					});
+				}
+				else
+				{
+					if(now_page==pages)
+					{
+						pages=pages+2;
+						$("li:eq("+pages+") a").css(
+						{
+							"color":"#666",
+							"cursor":"not-allowed"
+						});
+						pages++;
+						$("li:eq("+pages+") a").css(
+						{
+							"color":"#666",
+							"cursor":"not-allowed"
+						});
+					}
+					else
+					{
+						$("li:eq(0) a,li:eq(1) a").css(
+						{
+							"cursor":"pointer"
+						});
+					}
+				}
+			}
+
+		});
+	</script>
+</body>
+</html>
