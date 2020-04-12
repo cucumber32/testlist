@@ -1,36 +1,37 @@
 #include<iostream>
 using namespace std;
 
-#define INITSIZE 100 // Ë³Ğò±íµÄ³õÊ¼´óĞ¡
+#define INITSIZE 100 // é¡ºåºè¡¨çš„åˆå§‹å¤§å°
 
 template <typename ElemType>
 class SqList {
-	// Ë³Ğò±íµÄÊôĞÔ
-	ElemType* data;	// Ë³Ğò±í¶¯Ì¬´æ´¢¿Õ¼äµÄÊ×µØÖ·
-	int listSize;	// Ë³Ğò±íÄ¿Ç°ÒÑ·ÖÅäµÄ´æ´¢¿Õ¼ä´óĞ¡
-	int length;		// Ë³Ğò±íµ±Ç°¸öÊı
+	// é¡ºåºè¡¨çš„å±æ€§
+	ElemType* data;	// é¡ºåºè¡¨åŠ¨æ€å­˜å‚¨ç©ºé—´çš„é¦–åœ°å€
+	int listSize;	// é¡ºåºè¡¨ç›®å‰å·²åˆ†é…çš„å­˜å‚¨ç©ºé—´å¤§å°
+	int length;		// é¡ºåºè¡¨å½“å‰ä¸ªæ•°
 
 public:
-	// Ë³Ğò±íµÄ·½·¨
-	void InitList(SqList& L);						// ³õÊ¼»¯ÏßĞÔ±í
-	void printList(SqList& L);						// Êä³öÏßĞÔ±í
-	bool ListInsert(SqList& L, int i, ElemType e);	// ²åÈëÔªËØe
-	bool ListDelete(SqList& L, int i, ElemType& e); // É¾³ıµÚi¸öÔªËØ
-	ElemType GetElem(SqList L, int i);				// ²éÑ¯µÚi¸öÔªËØ
-	int locateElem(SqList L, ElemType e);			// ²éÕÒÖµÎªeµÄÔªËØ´ÎĞò
-	int getLength(SqList L);						// »ñÈ¡ÏßĞÔ±íµÄ³¤¶È
+	// é¡ºåºè¡¨çš„æ–¹æ³•
+	void InitList(SqList& L);						// åˆå§‹åŒ–çº¿æ€§è¡¨
+	void printList(SqList& L);						// è¾“å‡ºçº¿æ€§è¡¨
+	bool ListInsert(SqList& L, int i, ElemType e);	// æ’å…¥å…ƒç´ e
+	bool ListDelete(SqList& L, int i, ElemType& e); // åˆ é™¤ç¬¬iä¸ªå…ƒç´ 
+	ElemType GetElem(SqList L, int i);				// æŸ¥è¯¢ç¬¬iä¸ªå…ƒç´ 
+	int locateElem(SqList L, ElemType e);			// æŸ¥æ‰¾å€¼ä¸ºeçš„å…ƒç´ æ¬¡åº
+	int getLength(SqList L);						// è·å–çº¿æ€§è¡¨çš„é•¿åº¦
 
-	// Á·Ï°
-	bool deleteMinElem(SqList &L, ElemType& e);								// É¾³ı×îĞ¡ÖµµÄÔªËØ£¨¼ÙÉèÎ¨Ò»£©
-	void ListReverse(SqList& L);											// ÄæÖÃË³Ğò±í
-	bool deleteElem(SqList& L, ElemType e);									// É¾³ıËùÓĞÖµÎªeµÄÔªËØ
-	bool deleteSeqElemFromMin2Max(SqList& L, ElemType min, ElemType max);	// É¾³ıÓĞĞò±ímin-maxÖ®¼äµÄËùÓĞÔªËØ
-	bool deleteElemFromMin2Max(SqList& L, ElemType min, ElemType max);		// É¾³ıË³Ğò±íÖĞmin-maxÖ®¼äµÄËùÓĞÔªËØ£¨°üº¬min¡¢max£©
-	void SingleList(SqList& L);												// ÓĞĞòË³Ğò±íÈ¥ÖØ
-	SqList unionSqList(SqList L1, SqList L2);								// ºÏ²¢Á½¸öÓĞĞòË³Ğò±í
+	// ç»ƒä¹ 
+	bool deleteMinElem(SqList &L, ElemType& e);								// åˆ é™¤æœ€å°å€¼çš„å…ƒç´ ï¼ˆå‡è®¾å”¯ä¸€ï¼‰
+	void ListReverse(SqList& L);											// é€†ç½®é¡ºåºè¡¨
+	bool deleteElem(SqList& L, ElemType e);									// åˆ é™¤æ‰€æœ‰å€¼ä¸ºeçš„å…ƒç´ 
+	bool deleteSeqElemFromMin2Max(SqList& L, ElemType min, ElemType max);	// åˆ é™¤æœ‰åºè¡¨min-maxä¹‹é—´çš„æ‰€æœ‰å…ƒç´ 
+	bool deleteElemFromMin2Max(SqList& L, ElemType min, ElemType max);		// åˆ é™¤é¡ºåºè¡¨ä¸­min-maxä¹‹é—´çš„æ‰€æœ‰å…ƒç´ ï¼ˆåŒ…å«minã€maxï¼‰
+	void SingleList(SqList& L);												// æœ‰åºé¡ºåºè¡¨å»é‡
+	SqList unionSqList(SqList L1, SqList L2);								// åˆå¹¶ä¸¤ä¸ªæœ‰åºé¡ºåºè¡¨
+	void searchForValue(SqList& L, ElemType e);								// æŸ¥æ‰¾æ•°å€¼ä¸ºeçš„å…ƒç´ ï¼Œå¹¶ä¸”æ ¹æ®è¦æ±‚è¿›è¡Œæ“ä½œ
 };
 
-/****** ¹¤¾ßº¯Êı£ºÊä³öÏßĞÔ±í ********/
+/****** å·¥å…·å‡½æ•°ï¼šè¾“å‡ºçº¿æ€§è¡¨ ********/
 template <typename ElemType>
 void SqList<ElemType>::printList(SqList& L) {
 	for (int i = 0; i < L.length; i++) {
@@ -39,15 +40,15 @@ void SqList<ElemType>::printList(SqList& L) {
 	cout << endl;
 }
 
-/****** ³õÊ¼»¯ÏßĞÔ±í ****/
+/****** åˆå§‹åŒ–çº¿æ€§è¡¨ ****/
 template <typename ElemType>
 void SqList<ElemType>::InitList(SqList& L) {
 	L.length = 0;
-	L.data = new ElemType[INITSIZE]; // ¶¯Ì¬ÉêÇë´æ´¢¿Õ¼ä¡¾Èç¹ûĞèÒªÔö¼Ó³¤¶È£¬ÔòÖØĞÂ¿ª±Ù¿Õ¼ä£¬½«ÄÚÈİ¸´ÖÆ½øĞÂ¿Õ¼ä£¬ÊÍ·Å¾É¿Õ¼ä
+	L.data = new ElemType[INITSIZE]; // åŠ¨æ€ç”³è¯·å­˜å‚¨ç©ºé—´ã€å¦‚æœéœ€è¦å¢åŠ é•¿åº¦ï¼Œåˆ™é‡æ–°å¼€è¾Ÿç©ºé—´ï¼Œå°†å†…å®¹å¤åˆ¶è¿›æ–°ç©ºé—´ï¼Œé‡Šæ”¾æ—§ç©ºé—´
 	L.listSize = INITSIZE;
 }
 
-/****** ²åÈëÔªËØe ******/
+/****** æ’å…¥å…ƒç´ e ******/
 template <typename ElemType>
 bool SqList<ElemType>::ListInsert(SqList& L, int i, ElemType e) {
 	if (i > L.length + 1 || i < 1) {
@@ -64,7 +65,7 @@ bool SqList<ElemType>::ListInsert(SqList& L, int i, ElemType e) {
 	return true;
 }
 
-/****** É¾³ıµÚi¸öÔªËØ ******/
+/****** åˆ é™¤ç¬¬iä¸ªå…ƒç´  ******/
 template <typename ElemType>
 bool SqList<ElemType>::ListDelete(SqList& L, int i, ElemType& e) {
 	if (i < L.length || i < 1) {
@@ -78,39 +79,39 @@ bool SqList<ElemType>::ListDelete(SqList& L, int i, ElemType& e) {
 	return true;
 }
 
-/****** ²éÕÒµÚi¸öÔªËØ ******/
+/****** æŸ¥æ‰¾ç¬¬iä¸ªå…ƒç´  ******/
 template <typename ElemType>
 ElemType SqList<ElemType>::GetElem(SqList L, int i) {
 	return L.data[i-1];
 }
 
-/****** ²éÕÒÖµÎªeµÄÔªËØ´ÎĞò ******/
+/****** æŸ¥æ‰¾å€¼ä¸ºeçš„å…ƒç´ æ¬¡åº ******/
 template <typename ElemType>
 int SqList<ElemType>::locateElem(SqList L, ElemType e) {
 	for (int i = 0; i < L.length; i++) {
-		if (L.data[i] == e) { // ÕâÀï×¢Òâ£¬Èç¹ûÊı¾İÄÚÈİÎª½á¹¹Ìå£¬ÄÇÃ´ĞèÒªÌØÊâµÄÅĞ¶ÏÊÇ·ñÏàµÈ£¬ÕâÀï½öÖ±½ÓĞ´ÊıÖµÀàĞÍÅĞ¶Ï
+		if (L.data[i] == e) { // è¿™é‡Œæ³¨æ„ï¼Œå¦‚æœæ•°æ®å†…å®¹ä¸ºç»“æ„ä½“ï¼Œé‚£ä¹ˆéœ€è¦ç‰¹æ®Šçš„åˆ¤æ–­æ˜¯å¦ç›¸ç­‰ï¼Œè¿™é‡Œä»…ç›´æ¥å†™æ•°å€¼ç±»å‹åˆ¤æ–­
 			return i + 1;
 		}
 	}
 	return -1;
 }
 
-/****** »ñÈ¡ÏßĞÔ±íµÄ³¤¶È ******/
+/****** è·å–çº¿æ€§è¡¨çš„é•¿åº¦ ******/
 template <typename ElemType>
 int SqList<ElemType>::getLength(SqList L) {
 	return L.length;
 }
 
-/****************************************** ÏÂÃæÊÇÁ·Ï° *******************************************/
+/****************************************** ä¸‹é¢æ˜¯ç»ƒä¹  *******************************************/
 
 // test1
 /*
-** ÒªÇó£ºÉ¾³ı×îĞ¡ÖµµÄÔªËØ£¨¼ÙÉèÎ¨Ò»£©²¢ÓÉº¯Êı·µ»Ø±»É¾ÔªËØµÄÖµ¡£¿Õ³öµÄÎ»ÖÃÓÉ×îºóÒ»¸öÔªËØÌî²¹£¬ÈôË³Ğò±íÎª¿ÕÔòÏÔÊ¾³ö´íĞÅÏ¢²¢ÍË³öÔËĞĞ£»
+** è¦æ±‚ï¼šåˆ é™¤æœ€å°å€¼çš„å…ƒç´ ï¼ˆå‡è®¾å”¯ä¸€ï¼‰å¹¶ç”±å‡½æ•°è¿”å›è¢«åˆ å…ƒç´ çš„å€¼ã€‚ç©ºå‡ºçš„ä½ç½®ç”±æœ€åä¸€ä¸ªå…ƒç´ å¡«è¡¥ï¼Œè‹¥é¡ºåºè¡¨ä¸ºç©ºåˆ™æ˜¾ç¤ºå‡ºé”™ä¿¡æ¯å¹¶é€€å‡ºè¿è¡Œï¼›
 */
 template <typename ElemType>
 bool SqList<ElemType>::deleteMinElem(SqList &L, ElemType &e) {
 	if (L.length <= 0) {
-		cout << "Ë³Ğò±íÎª¿Õ£¬²»¿É½øĞĞ²Ù×÷£¡" << endl;
+		cout << "é¡ºåºè¡¨ä¸ºç©ºï¼Œä¸å¯è¿›è¡Œæ“ä½œï¼" << endl;
 		return false;
 	}
 	ElemType elem = L.data[0];
@@ -128,7 +129,7 @@ bool SqList<ElemType>::deleteMinElem(SqList &L, ElemType &e) {
 
 // test2
 /*
-** ÒªÇó£ºÄæÖÃË³Ğò±íµÄËùÓĞÔªËØ£¬ÒªÇóËã·¨µÄ¿Õ¼ä¸´ÔÓ¶ÈÎªO(1)
+** è¦æ±‚ï¼šé€†ç½®é¡ºåºè¡¨çš„æ‰€æœ‰å…ƒç´ ï¼Œè¦æ±‚ç®—æ³•çš„ç©ºé—´å¤æ‚åº¦ä¸ºO(1)
 */
 template<typename ElemType>
 void SqList<ElemType>::ListReverse(SqList& L) {
@@ -141,7 +142,7 @@ void SqList<ElemType>::ListReverse(SqList& L) {
 
 // test3
 /*
-** ÒªÇó£ºÉ¾³ıÏßĞÔ±íÖĞËùÓĞÖµÎªeµÄÔªËØ¡£ÒªÇóÊ±¼ä¸´ÔÓ¶ÈÎªO(n)£¬¿Õ¼ä¸´ÔÓ¶ÈÎªO(1)¡£
+** è¦æ±‚ï¼šåˆ é™¤çº¿æ€§è¡¨ä¸­æ‰€æœ‰å€¼ä¸ºeçš„å…ƒç´ ã€‚è¦æ±‚æ—¶é—´å¤æ‚åº¦ä¸ºO(n)ï¼Œç©ºé—´å¤æ‚åº¦ä¸ºO(1)ã€‚
 */
 template<typename ElemType>
 bool SqList<ElemType>::deleteElem(SqList& L, ElemType e) {
@@ -162,12 +163,12 @@ bool SqList<ElemType>::deleteElem(SqList& L, ElemType e) {
 
 // test4
 /*
-** ÒªÇó£ºÉ¾³ıÓĞĞò±íÖĞÖµÔÚmin-maxÖ®¼äµÄÔªËØ£¨min<max£©£¬Èç¹ûmin»òmax²»ºÏÀí»òË³Ğò±íÎª¿Õ£¬ÏÔÊ¾´íÎóĞÅÏ¢²¢ÍË³öÔËĞĞ
+** è¦æ±‚ï¼šåˆ é™¤æœ‰åºè¡¨ä¸­å€¼åœ¨min-maxä¹‹é—´çš„å…ƒç´ ï¼ˆmin<maxï¼‰ï¼Œå¦‚æœminæˆ–maxä¸åˆç†æˆ–é¡ºåºè¡¨ä¸ºç©ºï¼Œæ˜¾ç¤ºé”™è¯¯ä¿¡æ¯å¹¶é€€å‡ºè¿è¡Œ
 */
 template<typename ElemType>
 bool SqList<ElemType>::deleteSeqElemFromMin2Max(SqList& L, ElemType min, ElemType max) {
 	if (min >= max || L.length == 0) {
-		cout << "Êı¾İ²»ºÏÀí£¬ÇëĞŞ¸Ä²ÎÊı" << endl;
+		cout << "æ•°æ®ä¸åˆç†ï¼Œè¯·ä¿®æ”¹å‚æ•°" << endl;
 		return false;
 	}
 	int k = 0;
@@ -184,12 +185,12 @@ bool SqList<ElemType>::deleteSeqElemFromMin2Max(SqList& L, ElemType min, ElemTyp
 
 // test5
 /*
-** ÒªÇó£ºÉ¾³ıÏßĞÔ±íÖĞÖµÔÚmin-maxÖ®¼äµÄÔªËØ£¨min<max£¬°üº¬min¡¢max£©£¬Èç¹ûmin»òmax²»ºÏÀí»òË³Ğò±íÎª¿Õ£¬ÏÔÊ¾´íÎóĞÅÏ¢²¢ÍË³öÔËĞĞ
+** è¦æ±‚ï¼šåˆ é™¤çº¿æ€§è¡¨ä¸­å€¼åœ¨min-maxä¹‹é—´çš„å…ƒç´ ï¼ˆmin<maxï¼ŒåŒ…å«minã€maxï¼‰ï¼Œå¦‚æœminæˆ–maxä¸åˆç†æˆ–é¡ºåºè¡¨ä¸ºç©ºï¼Œæ˜¾ç¤ºé”™è¯¯ä¿¡æ¯å¹¶é€€å‡ºè¿è¡Œ
 */
 template<typename ElemType>
 bool SqList<ElemType>::deleteElemFromMin2Max(SqList& L, ElemType min, ElemType max) {
 	if (min >= max || L.length == 0) {
-		cout << "Êı¾İ²»ºÏÀí£¬ÇëĞŞ¸Ä²ÎÊı" << endl;
+		cout << "æ•°æ®ä¸åˆç†ï¼Œè¯·ä¿®æ”¹å‚æ•°" << endl;
 		return false;
 	}
 	int k = 0;
@@ -206,12 +207,12 @@ bool SqList<ElemType>::deleteElemFromMin2Max(SqList& L, ElemType min, ElemType m
 
 // test6
 /*
-** ÒªÇó£º´ÓÓĞĞòË³Ğò±íÖĞÉ¾³ıËùÓĞÆäÖµÖØ¸´µÄÔªËØ£¬Ê¹±íÖĞËùÓĞÔªËØµÄÖµ¾ù²»Í¬£»
+** è¦æ±‚ï¼šä»æœ‰åºé¡ºåºè¡¨ä¸­åˆ é™¤æ‰€æœ‰å…¶å€¼é‡å¤çš„å…ƒç´ ï¼Œä½¿è¡¨ä¸­æ‰€æœ‰å…ƒç´ çš„å€¼å‡ä¸åŒï¼›
 */
 template<typename ElemType>
 void SqList<ElemType>::SingleList(SqList& L) {
-	int k = 0;	// ÖØ¸´µÄ´ÎÊı
-	int j = 0;	// ²»ÖØ¸´µÄÔªËØÏÂ±ê
+	int k = 0;	// é‡å¤çš„æ¬¡æ•°
+	int j = 0;	// ä¸é‡å¤çš„å…ƒç´ ä¸‹æ ‡
 	for (int i = 1; i < L.length; i++) {
 		if (L.data[j] != L.data[i]) {
 			j++;
@@ -226,7 +227,7 @@ void SqList<ElemType>::SingleList(SqList& L) {
 
 // test7
 /*
-** ÒªÇó£ººÏ²¢Á½¸öÓĞĞòË³Ğò±í£¬·µ»ØÒ»¸öĞÂµÄÓĞĞòË³Ğò±í£»
+** è¦æ±‚ï¼šåˆå¹¶ä¸¤ä¸ªæœ‰åºé¡ºåºè¡¨ï¼Œè¿”å›ä¸€ä¸ªæ–°çš„æœ‰åºé¡ºåºè¡¨ï¼›
 */
 template<typename ElemType>
 SqList<ElemType> SqList<ElemType>::unionSqList(SqList L1, SqList L2) {
@@ -256,4 +257,32 @@ SqList<ElemType> SqList<ElemType>::unionSqList(SqList L1, SqList L2) {
 	}
 	L.length = k;
 	return L;
+}
+
+// test9
+/*
+** è¦æ±‚ï¼šå‡è®¾çº¿æ€§è¡¨å…ƒç´ çš„é€’å¢æœ‰åºã€‚è¦æ±‚åœ¨æœ€å°‘æ—¶é—´å†…æŸ¥æ‰¾æ•°å€¼ä¸ºeçš„å…ƒç´ ï¼Œè‹¥æ‰¾åˆ°åˆ™å°†å…¶ä¸åç»§å…ƒç´ ä½ç½®äº¤æ¢ï¼Œè‹¥æ‰¾ä¸åˆ°åˆ™å°†å…¶æ’å…¥è¡¨ä¸­å¹¶ä½¿è¡¨ä¸­å…ƒç´ ä»é€’å¢æœ‰åºã€‚
+*/
+template<typename ElemType>
+void SqList<ElemType>::searchForValue(SqList &L, ElemType e) {
+
+	for (int i = 0; i < L.length; i++) {
+		// æ‰¾åˆ°å…ƒç´ 
+		if (L.data[i] == e) {
+			if (i + 1 < L.length) {
+				L.data[i] = L.data[i + 1];
+				L.data[i + 1] = e;
+			}
+			break;
+		}
+		// æ‰¾ä¸åˆ°å…ƒç´ 
+		if (L.data[i] > e) {
+			ListInsert(L, i+1, e);
+			break;
+		}
+	}
+	// æ’å…¥å€¼æ¯”è¡¨ä¸­æ‰€æœ‰å…ƒç´ å¤§
+	if (L.data[length - 1] < e) {
+		ListInsert(L, L.length + 1, e);
+	}
 }
